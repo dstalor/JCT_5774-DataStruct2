@@ -23,7 +23,7 @@ bool Library::addTopic(Topic* toAdd, const Topic* parent = NULL)
 	{
 		for (std::vector<Topic*>::iterator it = topics.begin() ; it != topics.end(); ++it)
 		{
-			if ((*it)->addSubtopic()) //if it returns succesful
+			if ((*it)->addSubtopic(toAdd,parent)) //if it returns succesful
 			{
 				return true;
 			}
