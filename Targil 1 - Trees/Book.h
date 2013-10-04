@@ -17,5 +17,6 @@ public:
 	string description;
 	string summary;
 	string keywords;
+	bool is_valid_isbn13(char digits[13]);
 };
 
