@@ -13,5 +13,6 @@ public:
 	~Topic(void);
 	string name;
 	vector<Vertex*> subElements;
+	bool addSubtopic();
 };
 

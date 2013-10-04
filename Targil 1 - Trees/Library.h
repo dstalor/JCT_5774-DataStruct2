@@ -5,7 +5,7 @@ class Library
 public:
 	Library(void);
 	~Library(void);
-	Topic* root;
-	void addTopic(Topic* toAdd, const Topic* parent);
+	vector<Topic*> topics;
+	bool addTopic(Topic* toAdd, const Topic* parent);
 };
 

@@ -10,3 +10,8 @@ Topic::Topic(void)
 Topic::~Topic(void)
 {
 }
+
+bool Topic::addSubtopic()
+{
+	return true;
+}
