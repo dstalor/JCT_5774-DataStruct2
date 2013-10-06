@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "Vertex.h"
+#include "Book.h"
 
 using namespace std;
 
@@ -13,6 +14,6 @@ public:
 	~Topic(void);
 	string name;
 	vector<Vertex*> subElements;
-	bool addSubtopic(Topic* toAdd, const Topic* parent);
+	bool addVertex(Vertex* toAdd, const Topic* parent);
 };
 

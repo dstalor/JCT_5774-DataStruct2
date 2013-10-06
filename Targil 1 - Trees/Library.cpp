@@ -23,7 +23,26 @@ bool Library::addTopic(Topic* toAdd, const Topic* parent = NULL)
 	{
 		for (std::vector<Topic*>::iterator it = topics.begin() ; it != topics.end(); ++it)
 		{
-			if ((*it)->addSubtopic(toAdd,parent)) //if it returns succesful
+			if ((*it)->addVertex(toAdd,parent)) //if it returns succesful
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+}
+
+bool Library::addBook(Book* toAdd, const Topic* parent = NULL)
+{
+	if (parent = NULL) // this is an illogical request
+	{ 
+		return false;
+	}
+	else
+	{
+		for (std::vector<Topic*>::iterator it = topics.begin() ; it != topics.end(); ++it)
+		{
+			if ((*it)->addVertex(toAdd,parent)) //if it returns succesful
 			{
 				return true;
 			}

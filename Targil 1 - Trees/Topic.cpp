@@ -11,9 +11,13 @@ Topic::~Topic(void)
 {
 }
 
-bool Topic::addSubtopic(Topic* toAdd, const Topic* parent)
+bool Topic::addVertex(Vertex* toAdd, const Topic* parent)
 {
-	if (parent = this)
+	if (parent == NULL) // shouldn't ever come to this, but just in case...
+	{
+		return false;
+	}
+	else if (parent == this)
 	{
 		subElements.push_back(toAdd);
 		return true;
@@ -24,7 +28,7 @@ bool Topic::addSubtopic(Topic* toAdd, const Topic* parent)
 		{
 			if (typeid(*it) == typeid(Topic*)) // first make sure it's a Topic pointer
 			{
-				if (((Topic*)(*it))->addSubtopic(toAdd,parent)) // try to add to this Topic, and if successful
+				if (((Topic*)(*it))->addVertex(toAdd,parent)) // try to add to this Topic, and if successful
 				{
 					return true;
 				}

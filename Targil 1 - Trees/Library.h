@@ -7,5 +7,6 @@ public:
 	~Library(void);
 	vector<Topic*> topics;
 	bool addTopic(Topic* toAdd, const Topic* parent);
+	bool addBook(Book* toAdd, const Topic* parent);
 };
 
