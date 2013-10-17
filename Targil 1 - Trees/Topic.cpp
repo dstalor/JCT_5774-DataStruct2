@@ -1,3 +1,4 @@
+#pragma once
 #include "stdafx.h"
 #include "Topic.h"
 
@@ -11,29 +12,22 @@ Topic::~Topic(void)
 {
 }
 
-bool Topic::addVertex(Vertex* toAdd, const Topic* parent)
+void Topic::add(Node* x)
 {
-	if (parent == NULL) // shouldn't ever come to this, but just in case...
+	x->parent=this;
+	sons.push_back(x);
+}
+
+void Topic::print(int space)
+{
+	for(int i=0;i<space;i++)
+			cout<<"       ";
+	cout<<"["<<name<<"]"<<endl;
+	if( sons.empty()) return;
+	list <Node*>:: iterator it=sons.begin();
+	while(it!= sons.end())
 	{
-		return false;
-	}
-	else if (parent == this)
-	{
-		subElements.push_back(toAdd);
-		return true;
-	}
-	else
-	{
-		for (std::vector<Vertex*>::iterator it = subElements.begin() ; it != subElements.end(); ++it) // iterate through subElements
-		{
-			if (typeid(*it) == typeid(Topic*)) // first make sure it's a Topic pointer
-			{
-				if (((Topic*)(*it))->addVertex(toAdd,parent)) // try to add to this Topic, and if successful
-				{
-					return true;
-				}
-			} // no else - if not a Topic pointer, then move on to the next Vertex in the list
-		}
-		return false; // went through all Vertices and all came back false (no parent match)
+		(*it)->print(space+1);
+		it++;
 	}
 }

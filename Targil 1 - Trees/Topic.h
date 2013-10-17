@@ -1,19 +1,13 @@
 #pragma once
-#include <string>
-#include <vector>
-#include "Vertex.h"
-#include "Book.h"
-
-using namespace std;
+#include "Node.h"
 
 
-class Topic : public Vertex
+class Topic : public Node
 {
 public:
 	Topic(void);
 	~Topic(void);
-	string name;
-	vector<Vertex*> subElements;
-	bool addVertex(Vertex* toAdd, const Topic* parent);
+	void add(Node* x);
+	void print(int space);
 };
 

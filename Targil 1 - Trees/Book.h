@@ -1,22 +1,17 @@
 #pragma once
-#include <string>
-#include "Vertex.h"
+#include "Node.h"
 
-using namespace std;
-
-
-class Book : public Vertex
+class Book : public Node
 {
+private:
+	string author, publish, isbn, desc, keyWords, summary;
+
 public:
 	Book(void);
 	~Book(void);
-	string title;
-	string author;
-	string publisher;
-	char isbn[13];
-	string description;
-	string summary;
-	string keywords;
-	bool is_valid_isbn13(char digits[13]);
+
+	void add(Node* x);
+	virtual Node* search(string str);
+	void print(int space);
 };
 

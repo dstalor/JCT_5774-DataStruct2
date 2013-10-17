@@ -10,6 +10,11 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#include <iostream>
+#include <string>
+#include <list>
 
 
 // TODO: reference additional headers your program requires here
+
+using namespace std;
